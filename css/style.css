@@ -30,9 +30,17 @@ body {
     background-size: cover;
     background-position: center;
     background-color: var(--clr-bg);
-    background-image: 
-            var(--gradient-bg),
-            url('../images/bg-pattern-mobile.svg');
+    background-image: var(--gradient-bg);
+    overflow-x: hidden;
+}
+
+img,
+picture {
+    max-width: 100%;
+}
+
+img {
+    display: block;
 }
 
 h2,
@@ -43,18 +51,12 @@ p {
 
 .container {
     width: 86.7%;
-    max-width: 580px;
+    max-width: 425px;
     margin: 0 auto;
     margin-top: 145px;
 }
 
-@media (min-width: 600px) {
-    body {
-        background-image: 
-                var(--gradient-bg),
-                url('../images/bg-pattern-mobile.svg');;
-    }
-
+@media (min-width: 800px) {
     .container {
         max-width: 920px;
         margin-top: 130px;
@@ -62,7 +64,7 @@ p {
 }
 
 .grid { 
-    display: flex; 
+    display: grid; 
     gap: var(--gap, 1rem);
 }
 
@@ -73,10 +75,39 @@ p {
     border-radius: 2.5em; 
     background-color: var(--clr-white);
     /* opacity: 0; */
+    grid-template-areas: 
+        'image'
+        'content';
+}
+
+.card__img--wrapper {
+    grid-area: image;
+    position: relative;
+    padding: 0 40px;
+    z-index: 1;
+    margin-top: -35%;
+}
+    .card__img--wrapper::after {
+        content: url('../images/bg-pattern-mobile.svg');
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+    }
+
+.card__img--box {
+    width: 30%;
+    position: absolute;
+    top: 43%;
+    left: 11%;
+    z-index: 2;
 }
 
 .card {
-    padding: 20px;
+    grid-area: content;
+    padding: 20px 20px 45px;
+    width: 100%;
 }
 
 .card__title {
@@ -100,10 +131,15 @@ p {
     align-items: center;
     justify-content: space-between;
     font-weight: 400;
+    width: 100%;
 }
     .accordion__question::after {
+        position: relative;
         content: url('../images/icon-arrow-down.svg');
         display: block;
+        width: 10px;
+        margin-left: auto;
+        transition: transform 200ms ease-in-out;
     }
     .accordion__question[aria-expanded="true"] {
         font-weight: 700;
@@ -115,11 +151,11 @@ p {
 
 .accordion__answer {
     padding: 15px 0 0;
-    display: block;
-    transform: scale(1);
+    transition: transform 300ms ease-in-out, opacity 280ms linear;
 }
     .accordion__answer[aria-hidden="true"] {
         display: none;
+        opacity: 0;
         transform: scale(0);
     }
 
