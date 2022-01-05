@@ -1,0 +1,141 @@
+/* ===================== */
+/* Global Styles         */
+/* ===================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Custom Properties */
+:root {
+    --clr-bg: hsl(273, 75%, 66%);
+    --clr-stroke: hsl(240, 5%, 91%);
+    --clr-white: hsl(0, 100%, 100%);
+    --clr-text-dark: hsl(240, 6%, 50%);
+    --clr-text-darker: hsl(237, 12%, 33%);
+    --gradient-bg: 
+            linear-gradient(
+            hsl(273, 75%, 66%), 
+            hsl(240, 73%, 65%));
+}
+
+body {
+    display: grid;
+    place-items: center;
+    margin: 0;
+    color: var(--clr-text-dark);
+    font-size: 0.75rem;
+    font-family: 'Kumbh Sans', sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--clr-bg);
+    background-image: 
+            var(--gradient-bg),
+            url('../images/bg-pattern-mobile.svg');
+}
+
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+.container {
+    width: 86.7%;
+    max-width: 580px;
+    margin: 0 auto;
+    margin-top: 145px;
+}
+
+@media (min-width: 600px) {
+    body {
+        background-image: 
+                var(--gradient-bg),
+                url('../images/bg-pattern-mobile.svg');;
+    }
+
+    .container {
+        max-width: 920px;
+        margin-top: 130px;
+    }
+}
+
+.grid { 
+    display: flex; 
+    gap: var(--gap, 1rem);
+}
+
+/* ===================== */
+/* Card Styles           */
+/* ===================== */
+.container--grid {
+    border-radius: 2.5em; 
+    background-color: var(--clr-white);
+    /* opacity: 0; */
+}
+
+.card {
+    padding: 20px;
+}
+
+.card__title {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--clr-text-darker);
+    margin-bottom: 40px;
+}
+
+.accordion__item {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--clr-stroke);
+}
+
+.accordion__question {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 400;
+}
+    .accordion__question::after {
+        content: url('../images/icon-arrow-down.svg');
+        display: block;
+    }
+    .accordion__question[aria-expanded="true"] {
+        font-weight: 700;
+        color: var(--clr-text-darker);
+    }
+    .accordion__question[aria-expanded="true"]::after {
+        transform: rotate(180deg);
+    }
+
+.accordion__answer {
+    padding: 15px 0 0;
+    display: block;
+    transform: scale(1);
+}
+    .accordion__answer[aria-hidden="true"] {
+        display: none;
+        transform: scale(0);
+    }
+
+/* ===================== */
+/* Footer Styles         */
+/* ===================== */
+footer {
+    max-width: 800px;
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: 1px solid var(--clr-stroke);
+}
+
+.attribution { 
+    font-size: 11px; 
+    text-align: center; 
+}
+
+.attribution a { color: hsl(228, 45%, 44%); }
