@@ -20,63 +20,91 @@
   <title>Frontend Mentor | FAQ Accordion Card</title>
 </head>
 <body>
-  <main class="grid container container--grid">
+  <main class="container">
+    <div class="card grid grid--card bg-white">
+      
+      <div class="card__content">
+        <h1 class="title text-darker uppercase">Faq</h1>
 
-    <!-- Illustration Image Container -->
-    <div class="card__img--wrapper">
+        <div class="accordion">
 
-      <picture class="card__img card__img--box">
-        <source srcset="images/illustration-box-desktop.svg">
-        <img src="images/illustration-box-desktop.svg" alt="">
-      </picture>
-      <picture class="card__img card__img--woman">
-        <source srcset="images/illustration-woman-online-desktop.svg 1x, images/illustration-woman-online-desktop.svg 2x">
-        <img src="images/illustration-woman-online-desktop.svg" alt="">
-      </picture>
+          <!-- Accordion Item 1 -->
+          <div class="accordion__item">
+            <h2 class="accordion__item--title flex text-darker" aria-controls="accordion__item--content" data-toggled-content="false">
+              How many team members can I invite?
+            </h2>
 
-    </div>
+            <div id="accordion__item--content" class="accordion__item--content text-dark" aria-expanded="false" aria-hidden="true">
+              <p>You can invite up to 2 additional users on the Free plan. There is no limit on team members for the Premium plan.</p>
+            </div>
+          </div> <!-- /accordion__item -->
 
-    <!-- Card Content -->
-    <div class="card">
-      <h2 class="card__title">Faq</h2>
+          <!-- Accordion Item 2 -->
+          <div class="accordion__item">
+            <h2 class="accordion__item--title flex text-darker" aria-controls="accordion__item--content" data-toggled-content="false">
+              What is the maximum file upload size?
+            </h2>
 
-      <div class="accordion">
+            <div id="accordion__item--content" class="accordion__item--content text-dark" aria-expanded="false" aria-hidden="true">
+              <p>No more than 2GB. All files in your account must fit your allotted storage space.</p>
+            </div>
+          </div> <!-- /accordion__item -->
 
-        <div class="accordion__item">
-          <h3 id="accordion__title" class="accordion__question" aria-expanded="false">How many team members can I invite?</h3>
-          <p class="accordion__answer" aria-hidden="true">You can invite up to 2 additional users on the Free plan. There is no limit on team members for the Premium plan.</p>
-        </div>
+          <!-- Accordion Item 3 -->
+          <div class="accordion__item">
+            <h2 class="accordion__item--title flex text-darker" aria-controls="accordion__item--content" data-toggled-content="false">
+              How do I reset my password?
+            </h2>
 
-        <div class="accordion__item">
-          <h3 id="accordion__title" class="accordion__question" aria-expanded="false">What is the maximum file upload size?</h3>
-          <p class="accordion__answer" aria-hidden="true">No more than 2GB. All files in your account must fit your allotted storage space.</p>
-        </div>
+            <div id="accordion__item--content" class="accordion__item--content text-dark" aria-expanded="false" aria-hidden="true">
+              <p>Click “Forgot password” from the login page or “Change password” from your profile page. A reset link will be emailed to you.</p>
+            </div>
+          </div> <!-- /accordion__item -->
 
-        <div class="accordion__item">
-          <h3 id="accordion__title" class="accordion__question" aria-expanded="false">How do I reset my password?</h3>
-          <p class="accordion__answer" aria-hidden="true">Click “Forgot password” from the login page or “Change password” from your profile page. A reset link will be emailed to you.</p>
-        </div>
+          <!-- Accordion Item 4 -->
+          <div class="accordion__item">
+            <h2 class="accordion__item--title flex text-darker" aria-controls="accordion__item--content" data-toggled-content="false">
+              Can I cancel my subscription?
+            </h2>
 
-        <div class="accordion__item">
-          <h3 id="accordion__title" class="accordion__question" aria-expanded="false">Can I cancel my subscription?</h3>
-          <p class="accordion__answer" aria-hidden="true">Yes! Send us a message and we’ll process your request no questions asked.</p>
-        </div>
+            <div id="accordion__item--content" class="accordion__item--content text-dark" aria-expanded="false" aria-hidden="true">
+              <p>Yes! Send us a message and we’ll process your request no questions asked.</p>
+            </div>
+          </div> <!-- /accordion__item -->
 
-        <div class="accordion__item">
-          <h3 id="accordion__title" class="accordion__question" aria-expanded="false">Do you provide additional support?</h3>
-          <p class="accordion__answer" aria-hidden="true">Chat and email support is available 24/7. Phone lines are open during normal business hours.</p>
-        </div>
+          <!-- Accordion Item 5 -->
+          <div class="accordion__item">
+            <h2 class="accordion__item--title flex text-darker" aria-controls="accordion__item--content" data-toggled-content="false">
+              Do you provide additional support?
+            </h2>
 
-      </div> <!-- /accordion -->
+            <div id="accordion__item--content" class="accordion__item--content text-dark" aria-expanded="false" aria-hidden="true">
+              <p>Chat and email support is available 24/7. Phone lines are open during normal business hours.</p>
+            </div>
+          </div> <!-- /accordion__item -->
+
+        </div> <!-- /accordion -->
+      </div> <!-- /card__content -->
+
+      <!-- Card Image/Illustration -->
+      <div class="card__img--wrapper">
+        <img src="images/illustration-box-desktop.svg" alt="illustration of a box" class="card__img card__img--box">
+        <picture class="card__img card__img--woman">
+          <source srcset="images/illustration-woman-online-mobile.svg 1x, images/illustration-woman-online-desktop.svg 1.5x" type="image/svg">
+          <img src="images/illustration-woman-online-mobile.svg" alt="illustration of woman standing in front of computer screen">
+        </picture>
+      </div> <!-- card__img--wrapper -->
+
     </div> <!-- /card -->
-
   </main>
+  
   <footer>
-    <div class="attribution">
+    <div class="attribution text-white" style="text-align: center; font-size: 0.875rem;">
       Challenge by 
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="https://twitter.com/LeKoels27" target="_blank">Zaid Marrie</a>.
+      Coded by 
+      <a href="https://twitter.com/LeKoels27" target="_blank">Zaid Marrie</a>.
     </div>
-  </footer>
+  </footer> 
 </body>
 </html>

@@ -1,23 +1,36 @@
-const accordionHeadings = document.querySelectorAll('.accordion__question[aria-expanded]')
-const accordionAnswers = document.querySelectorAll('.accordion__answer[aria-hidden]')
+const accordionItemTitles = document.querySelectorAll('[data-toggled-content]');
+const accordionItemContents = document.querySelectorAll('.accordion__item--content');
 
-accordionHeadings.forEach(heading => {
-    heading.addEventListener('click', expandAccordion)
-})
+accordionItemTitles.forEach((title) => {
+    title.addEventListener('click', toggleAccordionItem);
+});
 
-const acc = document.querySelector('.accordion')
+function toggleAccordionItem(event) {
+    const { target: targetElement } = event;
+    const targetContent = targetElement.nextElementSibling;
+    const isContentExpanded = targetContent.getAttribute('aria-expanded');
 
-function expandAccordion(e) {
-    const { target } = e
-    const targetSibling = target.nextElementSibling
-    const targetIsExpanded = target.getAttribute('aria-expanded')
+    collapseAccordionItems();
 
-    if (targetIsExpanded === "false") {
-        target.setAttribute('aria-expanded', true)
-        targetSibling.setAttribute('aria-hidden', false)
+    if (isContentExpanded === "false") {
+        targetContent.setAttribute('aria-hidden', false);
+        targetContent.setAttribute('aria-expanded', true);
+        targetElement.setAttribute('data-toggled-content', true);
     } else {
-        target.setAttribute('aria-expanded', false)
-        targetSibling.setAttribute('aria-hidden', true)
+        targetContent.setAttribute('aria-hidden', true);
+        targetContent.setAttribute('aria-expanded', false);
+        targetElement.setAttribute('data-toggled-content', false);
     }
-    console.log(targetItemAnswer)
+}
+
+// Collapse All Accordion Items
+function collapseAccordionItems() {
+    accordionItemContents.forEach((item) => {
+        item.setAttribute('aria-expanded', false);
+        item.setAttribute('aria-hidden', true);
+    });
+
+    accordionItemTitles.forEach((title) => {
+        title.setAttribute('data-toggled-content', false);
+    })
 }
